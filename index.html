@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explore MIS careers | MIS Career Hub</title>
+  <meta name="description" content="Browse MIS career paths and the free tools CSUSM students already have.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark site-nav" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">MIS <span>Career Hub</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center gap-md-2">
+          <li class="nav-item"><a class="nav-link" href="index.html#careers">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#resources">Free tools</a></li>
+          <li class="nav-item"><a class="nav-link" data-quiz-link href="#" target="_blank" rel="noopener">Take the quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" id="nav-admin" href="login.html">Admin login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <p class="text-uppercase fw-semibold small mb-2" style="color: var(--accent)">For CSUSM business and MIS students</p>
+          <h1 class="display-5 mb-3">Find where MIS can take you.</h1>
+          <p class="lead mb-4">Browse 12 career paths, see what each job actually involves, and find the free tools your CSUSM email already unlocks.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-accent btn-lg" href="#careers">Browse careers</a>
+            <a class="btn btn-outline-light btn-lg" data-quiz-link href="#" target="_blank" rel="noopener">Take the career quiz</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="row g-3">
+            <div class="col-6"><div class="hero-stat"><strong>12</strong>career paths</div></div>
+            <div class="col-6"><div class="hero-stat"><strong>Free</strong>tools with your CSUSM email</div></div>
+            <div class="col-12"><div class="hero-stat">Pay and growth data from the U.S. Bureau of Labor Statistics, 2025&ndash;35 projections.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mt-4" id="load-status" aria-live="polite"></div>
+
+  <section class="section" id="careers" aria-labelledby="careers-title">
+    <div class="container">
+      <div class="row align-items-end g-3 mb-4">
+        <div class="col-md-7">
+          <h2 class="section-title" id="careers-title">Career paths</h2>
+          <p class="section-intro mb-0">Click a card to see a typical week, starter certifications, and the job outlook.</p>
+        </div>
+        <div class="col-md-5">
+          <label for="career-search" class="form-label small fw-semibold">Search careers</label>
+          <input type="search" class="form-control" id="career-search" placeholder="Try: data, security, Excel">
+          <div class="form-text" id="career-count" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="row g-4" id="career-grid">
+        <div class="col-12"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading careers</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section quiz-band" aria-labelledby="quiz-title">
+    <div class="container text-center">
+      <h2 class="section-title" id="quiz-title">Not sure where you fit?</h2>
+      <p class="section-intro mx-auto">The 10-minute MIS Career Fit Quiz matches your interests to these career paths.</p>
+      <a class="btn btn-primary btn-lg" data-quiz-link href="#" target="_blank" rel="noopener">Take the quiz</a>
+    </div>
+  </section>
+
+  <section class="section" id="resources" aria-labelledby="resources-title">
+    <div class="container">
+      <h2 class="section-title" id="resources-title">Free tools you already have</h2>
+      <p class="section-intro mb-4">Your CSUSM email unlocks paid software and AI tools. Check each official page for current terms.</p>
+      <div class="row g-4" id="resource-grid"></div>
+    </div>
+  </section>
+</main>
+
+<!-- Career details modal -->
+<div class="modal fade" id="careerModal" tabindex="-1" aria-labelledby="careerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title h5" id="careerModalLabel">Career</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="careerModalBody"></div>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
+    <div>
+      <p class="mb-1 fw-semibold text-white">MIS Career Hub</p>
+      <p class="mb-0">Career paths and free tools for CSUSM business and MIS students.</p>
+    </div>
+    <div class="text-md-end">
+      <p class="mb-1">Email: <a data-contact-email href="#">club email</a></p>
+      <p class="mb-1"><a data-instagram href="#" target="_blank" rel="noopener">Instagram</a> &middot;
+         <a data-linkedin href="#" target="_blank" rel="noopener">LinkedIn</a> &middot;
+         <a href="contact.html">Contact form</a></p>
+      <p class="mb-0 small">Student project for MIS coursework, <span id="year">2026</span>. Job data: U.S. Bureau of Labor Statistics.</p>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/public.js"></script>
+</body>
+</html>

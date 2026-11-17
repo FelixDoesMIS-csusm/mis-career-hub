@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | MIS Career Hub</title>
+  <meta name="description" content="Contact the CSUSM MIS Society.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark site-nav" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">MIS <span>Career Hub</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-md-center gap-md-2">
+          <li class="nav-item"><a class="nav-link" href="index.html#careers">Careers</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#resources">Free tools</a></li>
+          <li class="nav-item"><a class="nav-link" data-quiz-link href="#" target="_blank" rel="noopener">Take the quiz</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html" aria-current="page">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" id="nav-admin" href="login.html">Admin login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="h2 fw-bold">Contact us</h1>
+      <p>Questions about MIS careers, the club, or partnering with us? Reach out.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="card h-100">
+            <div class="card-body">
+              <h2 class="h5">Contact information</h2>
+              <dl class="mb-0">
+                <dt>Email</dt><dd><a data-contact-email href="#">club email</a></dd>
+                <dt>Where we meet</dt><dd>Cal State San Marcos, College of Business Administration<br>333 S Twin Oaks Valley Rd, San Marcos, CA 92096</dd>
+                <dt>Social</dt><dd><a data-instagram href="#" target="_blank" rel="noopener">Instagram</a> &middot; <a data-linkedin href="#" target="_blank" rel="noopener">LinkedIn</a></dd>
+                <dt>Employers and speakers</dt><dd class="mb-0">Choose "Partner with us" in the form and an officer will reply within a week.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="h5 mb-3">Send a message</h2>
+              <form id="contact-form" novalidate>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="c-name" class="form-label">Name *</label>
+                    <input id="c-name" name="name" class="form-control" required maxlength="100" autocomplete="name">
+                    <div class="invalid-feedback">Please enter your name.</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="c-email" class="form-label">Email *</label>
+                    <input id="c-email" name="email" type="email" class="form-control" required maxlength="200" autocomplete="email">
+                    <div class="invalid-feedback">Please enter a valid email.</div>
+                  </div>
+                  <div class="col-12">
+                    <label for="c-topic" class="form-label">Topic</label>
+                    <select id="c-topic" name="topic" class="form-select">
+                      <option>General question</option>
+                      <option>Joining the club</option>
+                      <option>Career advice</option>
+                      <option>Partner with us</option>
+                      <option>Fix something on this site</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <label for="c-body" class="form-label">Message *</label>
+                    <textarea id="c-body" name="body" class="form-control" rows="5" required maxlength="2000"></textarea>
+                    <div class="invalid-feedback">Please write a message.</div>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Send message</button>
+                  </div>
+                  <div class="col-12" id="contact-status" aria-live="polite"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
+    <div>
+      <p class="mb-1 fw-semibold text-white">MIS Career Hub</p>
+      <p class="mb-0">Career paths and free tools for CSUSM business and MIS students.</p>
+    </div>
+    <div class="text-md-end">
+      <p class="mb-1">Email: <a data-contact-email href="#">club email</a></p>
+      <p class="mb-1"><a data-instagram href="#" target="_blank" rel="noopener">Instagram</a> &middot;
+         <a data-linkedin href="#" target="_blank" rel="noopener">LinkedIn</a> &middot;
+         <a href="contact.html">Contact form</a></p>
+      <p class="mb-0 small">Student project for MIS coursework, <span id="year">2026</span>. Job data: U.S. Bureau of Labor Statistics.</p>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>
