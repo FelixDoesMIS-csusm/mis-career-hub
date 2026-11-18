@@ -172,6 +172,7 @@
             <small class="text-secondary">${esc(new Date(m.created_at).toLocaleString())}</small>
           </div>
           <p class="mb-2" style="white-space: pre-line">${esc(m.body)}</p>
+          <a class="btn btn-sm btn-primary me-1" href="mailto:${esc(m.email)}?subject=${encodeURIComponent(`Re: ${m.topic || ""} (CSUSM MIS Society)`)}">Reply</a>
           <button class="btn btn-sm btn-outline-danger" data-action="delete" data-table="messages" data-id="${m.id}">Delete</button>
         </div>
       </article>`).join("")
