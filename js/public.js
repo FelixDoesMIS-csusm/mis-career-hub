@@ -3,11 +3,14 @@
   const { db, esc, lines, safeUrl, notConfiguredNotice } = window.Hub;
 
   const careerGrid = document.getElementById("career-grid");
+  const resourceFilters = document.getElementById("resource-filters");
   const resourceGrid = document.getElementById("resource-grid");
   const status = document.getElementById("load-status");
   const search = document.getElementById("career-search");
   const count = document.getElementById("career-count");
   let careers = [];
+  let resources = [];
+  let activeResourceCategory = "";
 
   function list(items) {
     if (!items.length) return "";
@@ -45,7 +48,20 @@
     if (count) count.textContent = `${shown.length} of ${careers.length} career paths`;
   }
 
-  function renderResources(rows) {
+  function renderResourceFilters() {
+    const categories = [...new Set(resources.map((r) => r.category).filter(Boolean))];
+    const filters = [{ category: "", label: "All" }, ...categories.map((category) => ({ category, label: category }))];
+    resourceFilters.innerHTML = filters.map(({ category, label }) => `
+      <button type="button" class="btn btn-sm ${activeResourceCategory === category ? "btn-primary" : "btn-outline-primary"}"
+              data-resource-category="${esc(category)}" aria-pressed="${activeResourceCategory === category}">
+        ${esc(label)}
+      </button>`).join("");
+  }
+
+  function renderResources() {
+    const rows = activeResourceCategory
+      ? resources.filter((r) => r.category === activeResourceCategory)
+      : resources;
     resourceGrid.innerHTML = rows.length ? rows.map((r) => `
       <div class="col-12 col-md-6 col-lg-4">
         <article class="card resource-card h-100">
@@ -109,10 +125,19 @@
     careers = cRes.data;
     document.getElementById("career-total").textContent = careers.length;
     renderCareers();
-    renderResources(rRes.data);
+    resources = rRes.data;
+    renderResourceFilters();
+    renderResources();
   }
 
   search?.addEventListener("input", renderCareers);
+  resourceFilters.addEventListener("click", (e) => {
+    const button = e.target.closest("[data-resource-category]");
+    if (!button) return;
+    activeResourceCategory = button.dataset.resourceCategory;
+    renderResourceFilters();
+    renderResources();
+  });
   document.getElementById("careerModal")?.addEventListener("show.bs.modal", (e) => {
     fillModal(e.relatedTarget?.getAttribute("data-career-id"));
   });
