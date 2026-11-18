@@ -107,6 +107,7 @@
     }
     status.innerHTML = "";
     careers = cRes.data;
+    document.getElementById("career-total").textContent = careers.length;
     renderCareers();
     renderResources(rRes.data);
   }
